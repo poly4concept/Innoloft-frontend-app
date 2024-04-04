@@ -1,21 +1,16 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { updateProduct } from "../../reducers/actions";
-import SettingsIcon from "../../assets/SettingsIcon";
-import TagsInput from "react-tagsinput";
-import BusinessIcon from "../../assets/BusinessIcon";
-import ClockIcon from "../../assets/ClockIcon";
-import CostIcon from "../../assets/CostIcon";
-import SaveButton from "./SaveButton";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProduct } from '../../reducers/actions';
+import SettingsIcon from '../../assets/SettingsIcon';
+import TagsInput from 'react-tagsinput';
+import BusinessIcon from '../../assets/BusinessIcon';
+import ClockIcon from '../../assets/ClockIcon';
+import CostIcon from '../../assets/CostIcon';
+import SaveButton from './SaveButton';
 
-import "react-tagsinput/react-tagsinput.css";
+import 'react-tagsinput/react-tagsinput.css';
 
-const DetailsSection = ({
-  categories,
-  businessModels,
-  trl,
-  investmentEffort,
-}) => {
+const DetailsSection = ({ categories, businessModels, trl, investmentEffort }) => {
   const dispatch = useDispatch();
   const trls = useSelector((state) => state.trl);
   const [productDetails, setProductDetails] = useState({
@@ -24,7 +19,7 @@ const DetailsSection = ({
     trl,
     investmentEffort,
   });
-  const [updateStatus, setUpdateStatus] = useState("idle");
+  const [updateStatus, setUpdateStatus] = useState('idle');
 
   const handleInputChange = (e) => {
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
@@ -38,14 +33,15 @@ const DetailsSection = ({
 
   const saveProductDetails = async () => {
     try {
-      setUpdateStatus("pending");
+      setUpdateStatus('pending');
       await dispatch(updateProduct(productDetails)).unwrap();
     } catch (err) {
-      console.error("Failed to save the post: ", err);
+      console.error('Failed to save the post: ', err);
     } finally {
-      setUpdateStatus("idle");
+      setUpdateStatus('idle');
     }
   };
+
   return (
     <div className="bg-white border-[1px] border-[#E5E7EB] p-5 pt-7 flex flex-col space-y-5">
       <h3 className="font-semibold text-secondary">Offer Details</h3>
@@ -55,10 +51,7 @@ const DetailsSection = ({
           <SettingsIcon />
           <div className="flex flex-col space-y-2.5 w-full">
             <p>Technology</p>
-            <TagsInput
-              value={productDetails.categories}
-              onChange={handleTechnologiesChange}
-            />
+            <TagsInput value={productDetails.categories} onChange={handleTechnologiesChange} />
           </div>
         </div>
 
@@ -66,10 +59,7 @@ const DetailsSection = ({
           <BusinessIcon />
           <div className="flex flex-col space-y-2.5 w-full">
             <p>Business Model</p>
-            <TagsInput
-              value={productDetails.businessModels}
-              onChange={handleModelsChange}
-            />
+            <TagsInput value={productDetails.businessModels} onChange={handleModelsChange} />
           </div>
         </div>
 
@@ -108,10 +98,7 @@ const DetailsSection = ({
         </div>
       </div>
 
-      <SaveButton
-        disabled={updateStatus === "pending"}
-        saveData={saveProductDetails}
-      />
+      <SaveButton disabled={updateStatus === 'pending'} saveData={saveProductDetails} />
     </div>
   );
 };

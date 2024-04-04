@@ -1,18 +1,14 @@
-import { Link } from "react-router-dom";
-import GroupIcon from "../../assets/GroupIcon";
-import HomeIcon from "../../assets/HomeIcon";
-import ProductIcon from "../../assets/ProductIcon";
-import ProfileImg from "../../assets/profile.png";
+import { Link } from 'react-router-dom';
+import GroupIcon from '../../assets/GroupIcon';
+import HomeIcon from '../../assets/HomeIcon';
+import ProductIcon from '../../assets/ProductIcon';
+import ProfileImg from '../../assets/profile.png';
 
 const Sidebar = () => {
   return (
     <div className="flex flex-col">
       <div className="flex items-center space-x-4">
-        <img
-          src={ProfileImg}
-          className="rounded-full object-cover w-[70px] h-[70px]"
-          alt="profile"
-        />
+        <img src={ProfileImg} className="rounded-full object-cover w-[70px] h-[70px]" alt="profile" />
         <div className="flex flex-col">
           <p className="font-semibold text-md">Sven Pietsch</p>
           <p className="text-sm">Innoloft GmbH</p>

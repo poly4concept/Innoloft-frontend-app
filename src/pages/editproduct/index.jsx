@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import UserInfo from '../../components/common/UserInfo';
 import DetailsSection from '../../components/editproduct/DetailsSection';
 import EditHeader from '../../components/editproduct/EditHeader';
 import EditProductCard from '../../components/editproduct/EditProductCard';
 import VideoSection from '../../components/editproduct/VideoSection';
-import { useLocation } from 'react-router-dom';
 
 const EditProduct = () => {
   const { hasUserSection } = useSelector((state) => state.configuration.configuration);
@@ -30,6 +30,7 @@ const EditProduct = () => {
             company_logo={product.company.logo}
             user_name={`${product.user.firstName} ${product.user.lastName}`}
             user_picture={product.user.profilePicture}
+            address={product.company.address}
           />
         )}
       </div>

@@ -1,5 +1,5 @@
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const CustomEditor = ({ handleChange, description }) => {
   return (
@@ -10,7 +10,6 @@ const CustomEditor = ({ handleChange, description }) => {
         name="description"
         onChange={(event, editor) => {
           const data = editor.getData();
-          console.log(event);
           handleChange(data);
         }}
       />

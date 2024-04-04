@@ -1,4 +1,4 @@
-import AnchorButton from "../common/AnchorButton";
+import AnchorButton from '../common/AnchorButton';
 
 const EditHeader = () => {
   return (
